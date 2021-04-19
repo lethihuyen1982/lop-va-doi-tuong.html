@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lop hinh tron</title>
+</head>
+
+<body>
+    Radius <input type="text" id="radius">
+    <br>
+    <br>
+    Area:
+    <pre id="panel1"></pre>
+    <br>
+    <br>
+    Perimeter:
+    <pre id="panel2"></pre>
+    <script>
+        let circle = {
+            radius: getRadius(),
+            pi: 3.1416
+        }
+
+        document.getElementById("panel1").innerText = calculateAreaOfCircle()
+
+        document.getElementById("panel2").innerText = calculatePerimeterofCircle()
+
+
+        function getRadius() {
+            let radius = Number(document.getElementById("radius").value)
+            return radius
+        }
+
+        function calculateAreaOfCircle() {
+            let area = circle.pi * circle.radius * circle.radius
+            return area
+        }
+
+        function calculatePerimeterofCircle() {
+            let perimeter = 2 * circle.pi * circle.radius
+            return perimeter
+        }
+    </script>
+</body>
+
+</html>
