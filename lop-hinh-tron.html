@@ -18,24 +18,22 @@
     <script>
         let circle = {
             radius: 20,
-            pi: 3.1416
-        }
-
-        document.getElementById("panel1").innerText = calculateAreaOfCircle()
-
-        document.getElementById("panel2").innerText = calculatePerimeterofCircle()
-
-
-        
-        function calculateAreaOfCircle() {
-            let area = circle.pi * circle.radius * circle.radius
-            return area
-        }
-
-        function calculatePerimeterofCircle() {
-            let perimeter = 2 * circle.pi * circle.radius
+            pi: 3.1416,
+            area: function() {
+                let area = this.pi * this.radius * this.radius
+                return area
+            },
+            perimeter: function() {
+                let perimeter = 2 * this.pi * this.radius
             return perimeter
+            }
         }
+
+        document.getElementById("panel1").innerText = circle.area()
+
+        document.getElementById("panel2").innerText = circle.perimeter()
+
+  
     </script>
 </body>
 
