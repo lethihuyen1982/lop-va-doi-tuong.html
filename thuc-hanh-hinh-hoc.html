@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuc hanh hinh hoc</title>
+</head>
+<body>
+    <script>
+        let point = {
+      x: 0,
+      y: 0,
+      distanceTo: function (p) {
+        let xDistance = this.x - p.x
+        let yDistance = this.y - p.y
+        return Math.sqrt(xDistance * xDistance + yDistance * yDistance)
+      },
+      isIn: function(c) {
+        let distanceToRoot = this.distanceTo(c.center)
+        return distanceToRoot <= c.radius
+      },
+      getMidpoint: function(c) {
+        let xMidpoint = (this.x + circle.x)/2
+        let yMidpoint = (this.y + circle.y)/2
+        return "Midpoint:" + xMidpoint + "," + yMidpoint
+      }
+    }
+    let circle = {
+      center: {
+        x: 0,
+        y: 0
+      },
+      radius: 0,
+      getPerimeter: function () {
+        return 2 * Math.PI * this.radius
+      },
+      getArea: function () {
+        return Math.PI * this.radius * this.radius
+      },
+      isContain: function(p) {
+        return p.distanceTo(this.center) <= this.radius
+      }
+    }
+    circle.radius = Math.round(Math.random()*100)
+    point.x = Math.round(Math.random()*100)
+    point.y = Math.round(Math.random()*100)
+    
+    console.log("Midpoint:",point.xMidpoint, point.yMidpoint)
+    
+    </script>
+</body>
+</html>
