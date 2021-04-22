@@ -11,6 +11,7 @@
         let point = {
       x: 0,
       y: 0,
+      
       distanceTo: function (p) {
         let xDistance = this.x - p.x
         let yDistance = this.y - p.y
@@ -20,10 +21,10 @@
         let distanceToRoot = this.distanceTo(c.center)
         return distanceToRoot <= c.radius
       },
-      getMidpoint: function(c) {
-        let xMidpoint = (this.x + circle.x)/2
-        let yMidpoint = (this.y + circle.y)/2
-        return "Midpoint:" + xMidpoint + "," + yMidpoint
+      getMidpointBetweenPointAndCenterOfCircle: function(c) {
+        let xMidpoint = (this.x + c.center.x)/2
+        let yMidpoint = (this.y + c.center.y)/2
+        return "Midpoint:" + xMidpoint, yMidpoint
       }
     }
     let circle = {
@@ -42,11 +43,18 @@
         return p.distanceTo(this.center) <= this.radius
       }
     }
+
+   
     circle.radius = Math.round(Math.random()*100)
     point.x = Math.round(Math.random()*100)
     point.y = Math.round(Math.random()*100)
-    
+    circle.center.x = Math.round(Math.random()*100)
+    circle.center.y = Math.round(Math.random()*100)
+
+    console.log(point.x,point.y)
+    console.log(circle.center.x,circle.center.y)
     console.log("Midpoint:",point.xMidpoint, point.yMidpoint)
+    console.log(xDistance,yDistance)
     
     </script>
 </body>
