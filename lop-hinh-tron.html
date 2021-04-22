@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lop hinh tron</title>
 </head>
-
 <body>
-    Area:
-    <pre id="panel1"></pre>
-    <br>
-    <br>
-    Perimeter:
-    <pre id="panel2"></pre>
     <script>
-        let circle = {
-            radius: 20,
-            pi: 3.1416,
-            area: function() {
-                let area = this.pi * this.radius * this.radius
+        function Circle(xPos,yPos) {
+            let center = new Point(xPos,yPos)
+            this.xPos = function () {
+                return center.xPos()
+            }
+            this.yPos = function () {
+                return center.yPos()
+            }
+            this.radius=Math.round(Math.random()*100)
+            let area = Math.PI * this.radius * this.radius
+            this.getArea = function () {
                 return area
-            },
-            perimeter: function() {
-                let perimeter = 2 * this.pi * this.radius
-            return perimeter
             }
         }
 
-        document.getElementById("panel1").innerText = circle.area()
+        let c1 = new Circle(1,4)
+        console.log(`C1 at ${c1.xPos()} - ${c1.yPos()} has area ${c1.getArea()}`)
 
-        document.getElementById("panel2").innerText = circle.perimeter()
-
-  
+        function Point(xPos,yPos) {
+            let x = xPos
+            let y = yPos
+            this.xPos = function() {
+                return x
+            }
+            this.yPos = function() {
+                return y
+            }
+           
     </script>
-
-   
 </body>
-
 </html>
