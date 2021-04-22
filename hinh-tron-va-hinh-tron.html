@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 hinh tron</title>
+</head>
+
+<body>
+    <script>
+        let circle1 = {
+            center: {
+                x: 0,
+                y: 0
+            },
+            radius: 0,
+            getPerimeter: function () {
+                return 2 * Math.PI * this.radius
+            },
+            getArea: function () {
+                return Math.PI * this.radius * this.radius
+            },
+            isBigger: function (circle2) {
+                return this.radius > circle2.radius
+            },
+            distanceFromCenterToCenter: function (c) {
+                let xDistance = this.center.x - c.center.x
+                let yDistance = this.center.y - c.center.y
+                let distance = Math.sqrt(yDistance * yDistance + xDistance * xDistance)
+                return distance
+            },
+            sumRadiusAndRadius: function (c) {
+                let sum = this.radius + c.radius
+                return sum
+            },
+            isTouch: function () {
+                return this.distance == this.sum
+            }
+        }
+
+        let circle2 = {
+            center: {
+                x: 0,
+                y: 0
+            },
+            radius: 0,
+            getPerimeter: function () {
+                return 2 * Math.PI * this.radius
+            },
+            getArea: function () {
+                return Math.PI * this.radius * this.radius
+            },
+            isBigger: function (circle1) {
+                return this.radius > circle1.radius
+            },
+            distanceFromCenterToCenter: function (c) {
+                let xDistance = this.center.x - c.center.x
+                let yDistance = this.center.y - c.center.y
+                let distance = Math.sqrt(yDistance * yDistance + xDistance * xDistance)
+                return distance
+            },
+            sumRadiusAndRadius: function (c) {
+                let sum = this.radius + c.radius
+                return sum
+            },
+            isTouch: function () {
+                return this.distance == this.sum
+            }
+        }
+        circle1.radius = Math.round(Math.random() * 100)
+        circle2.radius = Math.round(Math.random() * 100)
+        circle1.center.x = Math.round(Math.random() * 100)
+        circle1.center.y = Math.round(Math.random() * 100)
+        circle2.center.x = Math.round(Math.random() * 100)
+        circle2.center.y = Math.round(Math.random() * 100)
+
+        console.log("Circle 1 is bigger than Circle 2", circle1.isBigger(circle2))
+        console.log("Circle 2 is bigger than Circle 1", circle2.isBigger(circle1))
+        console.log("Distance from center to center:", circle2.distanceFromCenterToCenter(circle1))
+        console.log("Sum of radius and radius:", circle1.sumRadiusAndRadius(circle2))
+        console.log("Circle1 and Circle2 touch each other:", circle1.isTouch(circle2))
+        
+
+
+    </script>
+</body>
+
+</html>
