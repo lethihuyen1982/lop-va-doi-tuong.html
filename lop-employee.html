@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xay dung lop Employee</title>
+</head>
+
+<body>
+    <script>
+        function Employee(id, first_name, last_name, salary) {
+            this.id = id;
+            this.first_name = first_name;
+            this.last_name = last_name;
+            this.salary = salary;
+            this.getID = function () {
+                return id
+            };
+            this.getFirstName = function () {
+                return first_name
+            };
+            this.getLastName = function () {
+                return last_name
+            };
+            this.getName = function () {
+                return last_name + first_name
+            };
+            this.getSalary = function () {
+                return salary
+            };
+            this.getAnnualSalary = function() {
+                let annual_salary = this.getSalary() * 12
+                return annual_salary
+            };
+            this.raiseSalary = function() {
+                let raise_salary = this.getSalary() * 1.2
+                return raise_salary
+            };
+            this.getSalaryAfterRaised = function() {
+                let salary_after_raised = this.getSalary() + this.raiseSalary()
+                return salary_after_raised
+            };
+            this.getAnnualSalaryAfterRaised = function() {
+                let annual_salary_after_raised = this.getSalaryAfterRaised() * 12
+                return annual_salary_after_raised
+            }
+        }
+
+        let employee_1 = new Employee(01, "An", "Pham Binh ", 10);
+        console.log("Ho va ten: " + employee_1.getName())
+        console.log("Luong thang: " + employee_1.getSalary() + " trieu / thang")
+        console.log("Luong nam: " + employee_1.getAnnualSalary() + " trieu / nam")
+        console.log("Luong thang sau khi tang: " + employee_1.getSalaryAfterRaised() + " trieu / thang" )
+        console.log("Luong nam sau khi tang: " + employee_1.getAnnualSalaryAfterRaised() + " trieu / nam")
+
+    </script>
+</body>
+
+</html>
